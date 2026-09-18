@@ -17,7 +17,7 @@ RUN apt update && apt upgrade -y && apt autoremove -y && \
     rm -rf flutter.tar.xz && \
     git config --global --add safe.directory /usr/local/flutter-cli/flutter && \
     flutter config --no-analytics && \
-    flutter --disable-telemetry && \
+    flutter --disable-analytics && \
     flutter precache
 
 # Set up shared pub/Gradle caches so `--rm` runs (with only $PWD bind-mounted
