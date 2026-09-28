@@ -12,7 +12,7 @@ RUN apt update && apt upgrade -y && apt autoremove -y && \
     apt install -y bash curl file git unzip xz-utils zip libglu1-mesa && \
     mkdir -p /usr/local/flutter-cli && \
     cd /tmp && \
-    curl -L https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.47.4-stable.tar.xz -o flutter.tar.xz && \
+    curl -L https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.47.5-stable.tar.xz -o flutter.tar.xz && \
     tar xf flutter.tar.xz -C /usr/local/flutter-cli && \
     rm -rf flutter.tar.xz && \
     git config --global --add safe.directory /usr/local/flutter-cli/flutter && \
@@ -44,7 +44,7 @@ RUN cd /tmp && \
     mkdir -p /usr/local/android-cli/cmdline-tools/latest && \
     yes | sdkmanager --licenses --sdk_root=/usr/local/android-cli && \
     sdkmanager --update --sdk_root=/usr/local/android-cli && \
-    sdkmanager "platform-tools" "platforms;android-36" "build-tools;36.1.0" "cmdline-tools;latest" "ndk;28.2.13676358" "cmake;3.31.6" --sdk_root=/usr/local/android-cli
+    sdkmanager "platform-tools" "platforms;android-36" "build-tools;37.0.0" "cmdline-tools;latest" "ndk;28.2.13676358" "cmake;4.1.2" --sdk_root=/usr/local/android-cli
 
 # Privilege drop
 RUN adduser --disabled-password --gecos '' flutter && \
