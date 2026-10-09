@@ -44,7 +44,7 @@ RUN cd /tmp && \
     mkdir -p /usr/local/android-cli/cmdline-tools/latest && \
     yes | sdkmanager --licenses --sdk_root=/usr/local/android-cli && \
     sdkmanager --update --sdk_root=/usr/local/android-cli && \
-    sdkmanager "platform-tools" "platforms;android-36" "platforms;android-37.0" "build-tools;37.0.0" "cmdline-tools;latest" "ndk;28.2.13676358" "cmake;4.1.2" --sdk_root=/usr/local/android-cli
+    sdkmanager "platform-tools" "platforms;android-34" "platforms;android-35" "platforms;android-36" "platforms;android-37.0" "build-tools;36.0.0" "build-tools;37.0.0" "cmdline-tools;latest" "ndk;28.2.13676358" "cmake;4.1.2" --sdk_root=/usr/local/android-cli
 
 # Privilege drop
 RUN adduser --disabled-password --gecos '' flutter && \
