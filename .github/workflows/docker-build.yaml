@@ -4,8 +4,10 @@ on:
   schedule:
     - cron: "0 0 * * 0" # Every Sunday at 00:00
   push:
+    # Build only on the integration and default branches; never on PR/feature branches.
     branches:
-      - "*"
+      - dev
+      - latest
     tags:
       - "v*.*.*"
   workflow_dispatch:
