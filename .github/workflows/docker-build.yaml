@@ -22,7 +22,6 @@ permissions:
 
 jobs:
   build-packages:
-    if: ${{ github.event_name != 'pull_request' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -55,7 +54,7 @@ jobs:
         uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
         with:
           context: .
-          push: ${{ github.event_name != 'pull_request' }}
+          push: true
           tags: ${{ steps.meta-packages.outputs.tags }}
           labels: ${{ steps.meta-packages.outputs.labels }}
           cache-from: type=gha
