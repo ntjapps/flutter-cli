@@ -1,15 +1,8 @@
 name: Docker Build Image from Repository
 
+# Manual-only: automatic triggers removed; run via workflow_dispatch (Actions tab or gh workflow run).
+# Image tags derive from the dispatched ref: run on branch latest, or on a v*.*.* tag ref (gh workflow run docker-build.yaml --ref latest).
 on:
-  schedule:
-    - cron: "0 0 * * 0" # Every Sunday at 00:00
-  push:
-    # Build only on the integration and default branches; never on PR/feature branches.
-    branches:
-      - dev
-      - latest
-    tags:
-      - "v*.*.*"
   workflow_dispatch:
 
 env:
