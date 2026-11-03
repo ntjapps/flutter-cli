@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   build-packages:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-2vcpu-ubuntu-2404
     permissions:
       contents: read
       packages: write
