@@ -14,7 +14,7 @@
 # Not covered by these pins: apt packages, `flutter precache` engine artifacts and
 # `sdkmanager` packages (the latter two are fetched over HTTPS and verified by
 # their own tools).
-FROM ubuntu:noble@sha256:24737cef17f4e22b1977df7d9a05e77c4e28b7da5b8911f8d8ccda136bf3573c
+FROM ubuntu:noble@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852
 
 ENV PATH="/usr/local/flutter-cli/flutter/bin:/usr/local/android-cli/cmdline-tools/bin:/usr/local/android-cli/platform-tools:${PATH}"
 ENV FLUTTER_GIT_URL="https://github.com/flutter/flutter.git"
