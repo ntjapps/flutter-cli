@@ -17,6 +17,8 @@ License can be read in [LICENSE](https://github.com/ntj125app/flutter-cli/blob/l
 
 # UPDATE
 
+[11 November 2026] - Updated Repo Commit, now ships Flutter 3.47.9 / Dart 3.13.7 / JDK 21 / Android SDK 36 (build-tools 37.0.0, cmake 4.1.2) + NDK 28.2
+
 [25 October 2026] - Updated Repo Commit, now ships Flutter 3.47.8 / Dart 3.13.7 / JDK 21 / Android SDK 36 (build-tools 37.0.0, cmake 4.1.2) + NDK 28.2
 
 [13 October 2026] - Updated Repo Commit, now ships Flutter 3.47.7 / Dart 3.13.5 / JDK 21 / Android SDK 36 (build-tools 37.0.0, cmake 4.1.2) + NDK 28.2
