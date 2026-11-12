@@ -45,9 +45,12 @@ RUN apt update && apt upgrade -y && apt autoremove -y && \
 # Set up shared pub/Gradle caches so `--rm` runs (with only $PWD bind-mounted
 # by the host wrapper) don't re-download the world on every invocation. The
 # host wrapper mounts its own persistent directories at these same paths, so
-# they must be writable regardless of which UID the container runs as.
+# they must be writable by the runtime user (`flutter`, created in the
+# "Privilege drop" step below, which chowns these two dirs to it). Group-writable
+# and setgid (2775), never world-writable: a different UID gets its write access
+# from the mounted host dirs, not from the image.
 RUN mkdir -p "$PUB_CACHE" "$GRADLE_USER_HOME" && \
-    chmod -R 777 "$PUB_CACHE" "$GRADLE_USER_HOME"
+    chmod 2775 "$PUB_CACHE" "$GRADLE_USER_HOME"
 
 # Install Java
 RUN apt install -y openjdk-21-jdk && \
@@ -74,7 +77,8 @@ RUN adduser --disabled-password --gecos '' flutter && \
     chown -R flutter:flutter /usr/local/flutter-cli && \
     chown -R flutter:flutter /usr/local/android-cli && \
     chown -R flutter:flutter /root/.android && \
-    chown -R flutter:flutter "$PUB_CACHE" "$GRADLE_USER_HOME"
+    chown -R flutter:flutter "$PUB_CACHE" "$GRADLE_USER_HOME" && \
+    chmod -R g+rwX,o-w "$PUB_CACHE" "$GRADLE_USER_HOME"
 
 USER flutter
 
